@@ -37,7 +37,7 @@ export default function PlotterPage() {
       </Container>
       <section className="py-16 bg-gradient-to-b from-bg to-bg-elevated relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/promo-2.webp" alt="" fill className="object-cover opacity-25" />
+          <Image src="/images/promo-2.webp" alt="" fill className="object-cover opacity-25" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/90 to-bg" />
         </div>
         <Container className="relative z-10">

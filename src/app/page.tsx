@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '@/components/ui/Container'
 import { Card, CardContent } from '@/components/ui/Card'
@@ -45,7 +45,7 @@ export default function HomePage() {
       <Hero />
 
       {/* Галерея работ — бегущая лента */}
-      <section className="py-12 bg-bg-elevated overflow-hidden">
+      <MotionSection className="py-12 bg-bg-elevated overflow-hidden">
         <div className="flex gap-4 animate-scroll-x">
           {[...galleryImages, ...galleryImages].map((img, i) => (
             <div key={i} className="relative flex-shrink-0 w-80 h-48 rounded-xl overflow-hidden border border-border group">
@@ -53,14 +53,14 @@ export default function HomePage() {
                 src={img.src}
                 alt={img.title}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
+                className="object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
               <div className="absolute bottom-3 left-4 text-sm text-fg font-medium">{img.title}</div>
             </div>
           ))}
         </div>
-      </section>
+      </MotionSection>
 
       <MotionSection className="py-20 bg-bg-elevated">
         <Container>
@@ -84,7 +84,7 @@ export default function HomePage() {
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-bg-card/40 to-transparent" />
                       <div className="absolute top-4 left-4">
@@ -160,7 +160,7 @@ export default function HomePage() {
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-500 hover:scale-110" loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
                     <div className="absolute top-4 right-4">

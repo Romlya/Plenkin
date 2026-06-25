@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
@@ -170,7 +170,7 @@ export default function PortfolioClient() {
                       src={project.mainImage}
                       alt={project.title}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      className="object-cover transition-transform duration-500 hover:scale-110" loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
                     <div className="absolute top-4 right-4">
@@ -211,7 +211,7 @@ export default function PortfolioClient() {
                 src={selectedProject.mainImage}
                 alt={selectedProject.title}
                 fill
-                className="object-cover"
+                className="object-cover" loading="lazy"
               />
             </div>
 
@@ -260,13 +260,13 @@ export default function PortfolioClient() {
                       <div>
                         <div className="text-sm text-fg-muted mb-2">До</div>
                         <div className="relative h-40 rounded-lg overflow-hidden">
-                          <Image src={selectedProject.beforeImage} alt="До" fill className="object-cover" />
+                          <Image src={selectedProject.beforeImage} alt="До" fill className="object-cover" loading="lazy" />
                         </div>
                       </div>
                       <div>
                         <div className="text-sm text-fg-muted mb-2">После</div>
                         <div className="relative h-40 rounded-lg overflow-hidden">
-                          <Image src={selectedProject.afterImage} alt="После" fill className="object-cover" />
+                          <Image src={selectedProject.afterImage} alt="После" fill className="object-cover" loading="lazy" />
                         </div>
                       </div>
                     </div>

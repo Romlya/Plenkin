@@ -10,6 +10,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 
 const services = [
   { title: 'Противоосколочные и бронирующие', slug: 'protective', description: 'Защита от осколков, взлома, БПЛА. Классы К4–Р4А по ГОСТ 51136, 30826.', priceFrom: 'от 1 100 ₽/м²', features: ['5 классов защиты', 'Сертификаты ГОСТ', 'Гарантия до 15 лет'] },
@@ -24,6 +25,9 @@ const services = [
 export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-32">
+      <Container>
+        <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }]} />
+      </Container>
       <section className="py-16 bg-gradient-to-b from-bg to-bg-elevated bg-dot-pattern">
         <Container>
           <div className="max-w-4xl mx-auto text-center">

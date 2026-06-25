@@ -1,4 +1,4 @@
-﻿﻿import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { SmartFilmDemo } from '@/components/sections/SmartFilmDemo'
 
 export const metadata: Metadata = {
   title: 'Смарт-плёнки PDLC и спецрешения: экранирующие, музейные | ПЛЕНКИН',
@@ -27,7 +28,7 @@ export default function SmartPage() {
       </Container>
       <section className="py-16 bg-gradient-to-b from-bg to-bg-elevated relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/office-solar-film.webp" alt="" fill className="object-cover opacity-25" />
+          <Image src="/images/office-solar-film.webp" alt="" fill className="object-cover opacity-25" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/90 to-bg" />
         </div>
         <Container className="relative z-10">
@@ -73,28 +74,14 @@ export default function SmartPage() {
 
       <section className="py-16 bg-bg-elevated">
         <Container>
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-fg mb-6">Как работает смарт-плёнка PDLC</h2>
-            <Card variant="default" className="p-8">
-              <p className="text-fg-muted leading-relaxed mb-6">
-                PDLC (Polymer Dispersed Liquid Crystal) — полимерная матрица с жидкокристаллическими каплями.
-                Без напряжения кристаллы рассеяны — плёнка матовая. При подаче напряжения кристаллы
-                выстраиваются — плёнка становится прозрачной.
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-4 rounded-lg bg-bg border border-border">
-                  <div className="text-sm text-accent mb-2">Выключено (0 В)</div>
-                  <div className="text-fg">Кристаллы хаотичны → матовая → приватность 100%</div>
-                </div>
-                <div className="p-4 rounded-lg bg-bg border border-border">
-                  <div className="text-sm text-accent mb-2">Включено (220 В)</div>
-                  <div className="text-fg">Кристаллы выстроены → прозрачная → светопропускание 75%</div>
-                </div>
-              </div>
-              <div className="mt-6 text-sm text-fg-subtle">
-                Управление: настенный выключатель, пульт ДУ, смартфон (WiFi/Bluetooth), датчик освещённости, умный дом.
-              </div>
-            </Card>
+          <h2 className="text-2xl font-bold text-fg mb-6 text-center" style={{ fontFamily: 'var(--font-display)' }}>Как работает смарт-плёнка PDLC</h2>
+          <p className="text-fg-muted leading-relaxed mb-8 max-w-2xl mx-auto text-center">
+            PDLC (Polymer Dispersed Liquid Crystal) — полимерная матрица с жидкокристаллическими каплями.
+            Нажмите на стекло ниже, чтобы увидеть эффект в действии.
+          </p>
+          <SmartFilmDemo />
+          <div className="mt-8 max-w-2xl mx-auto text-center text-sm text-fg-subtle">
+            Управление: настенный выключатель, пульт ДУ, смартфон (WiFi/Bluetooth), датчик освещённости, умный дом.
           </div>
         </Container>
       </section>

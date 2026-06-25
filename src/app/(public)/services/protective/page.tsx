@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -49,7 +49,7 @@ export default function ProtectivePage() {
       </Container>
       <section className="py-16 bg-gradient-to-b from-bg via-bg to-bg-elevated relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/showcase-protection.webp" alt="" fill className="object-cover opacity-20" />
+          <Image src="/images/showcase-protection.webp" alt="" fill className="object-cover opacity-20" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/90 to-bg" />
         </div>
         <Container className="relative z-10">

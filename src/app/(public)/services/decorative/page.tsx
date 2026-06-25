@@ -29,7 +29,7 @@ export default function DecorativePage() {
       </Container>
       <section className="py-16 bg-gradient-to-b from-bg via-bg to-bg-elevated relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/tinting-various-rooms.webp" alt="" fill className="object-cover opacity-25" />
+          <Image src="/images/tinting-various-rooms.webp" alt="" fill className="object-cover opacity-25" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/90 to-bg" />
         </div>
         <Container className="relative z-10">
@@ -57,7 +57,7 @@ export default function DecorativePage() {
             {features.map((feature, index) => (
               <Card key={index} variant="glass" hover className="overflow-hidden h-full">
                 <div className="relative h-44 overflow-hidden">
-                  <Image src={feature.image} alt={feature.title} fill className="object-cover transition-transform duration-500 hover:scale-110" />
+                  <Image src={feature.image} alt={feature.title} fill className="object-cover transition-transform duration-500 hover:scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
                   <div className="absolute top-3 left-3 text-2xl">{feature.icon}</div>
                 </div>
@@ -80,7 +80,7 @@ export default function DecorativePage() {
               <Card variant="default" className="overflow-hidden">
                 <div className="flex flex-col md:flex-row">
                   <div className="relative h-64 md:w-1/2">
-                    <Image src="/images/modern-office-athermal.webp" alt="Матовые перегородки" fill className="object-cover" />
+                    <Image src="/images/modern-office-athermal.webp" alt="Матовые перегородки" fill className="object-cover" loading="lazy" />
                   </div>
                   <div className="p-8 md:w-1/2">
                     <h3 className="text-2xl font-bold text-fg mb-4">Матовые перегородки</h3>
@@ -99,7 +99,7 @@ export default function DecorativePage() {
               <Card variant="default" className="overflow-hidden">
                 <div className="flex flex-col md:flex-row-reverse">
                   <div className="relative h-64 md:w-1/2">
-                    <Image src="/images/film-windows-showcases.webp" alt="Фотопанели" fill className="object-cover" />
+                    <Image src="/images/film-windows-showcases.webp" alt="Фотопанели" fill className="object-cover" loading="lazy" />
                   </div>
                   <div className="p-8 md:w-1/2">
                     <h3 className="text-2xl font-bold text-fg mb-4">Фотопанели с брендированием</h3>

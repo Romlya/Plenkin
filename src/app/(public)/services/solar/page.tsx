@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -42,7 +42,7 @@ export default function SolarPage() {
       </Container>
       <section className="py-16 bg-gradient-to-b from-bg via-bg to-bg-elevated relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/images/modern-office-heat.webp" alt="" fill className="object-cover opacity-25" />
+          <Image src="/images/modern-office-heat.webp" alt="" fill className="object-cover opacity-25" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-b from-bg/80 via-bg/90 to-bg" />
         </div>
         <Container className="relative z-10">
@@ -69,7 +69,7 @@ export default function SolarPage() {
             {types.map((type) => (
               <Card key={type.name} variant="glass" hover className="overflow-hidden">
                 <div className="relative h-56 overflow-hidden">
-                  <Image src={type.image} alt={type.name} fill className="object-cover transition-transform duration-500 hover:scale-110" />
+                  <Image src={type.image} alt={type.name} fill className="object-cover transition-transform duration-500 hover:scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
                     <div className="w-4 h-4 rounded-full" style={{ backgroundColor: type.color }} />

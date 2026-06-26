@@ -31,7 +31,7 @@ export function SmartFilmDemo() {
           style={{ opacity: isOn ? 0 : 1 }}
         >
           <div className="text-center">
-            <div className="text-6xl mb-4">🔒</div>
+            <svg viewBox="0 0 24 24" className="w-12 h-12 mx-auto mb-4 text-fg-muted" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
             <div className="text-xl font-bold text-fg">Матовая</div>
             <div className="text-sm text-fg-muted mt-1">Приватность 100%</div>
           </div>
@@ -41,7 +41,7 @@ export function SmartFilmDemo() {
           style={{ opacity: isOn ? 1 : 0 }}
         >
           <div className="text-center bg-bg/60 backdrop-blur-sm rounded-xl p-4">
-            <div className="text-6xl mb-4">👁️</div>
+            <svg viewBox="0 0 24 24" className="w-12 h-12 mx-auto mb-4 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
             <div className="text-xl font-bold text-fg">Прозрачная</div>
             <div className="text-sm text-fg-muted mt-1">Светопропускание 75%</div>
           </div>

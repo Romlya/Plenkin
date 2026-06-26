@@ -1,4 +1,4 @@
-﻿﻿import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 }
 
 const features = [
-  { icon: '✨', title: 'Матовые и сатиновые', description: 'Оформление перегородок, зонирование open space, разграничение переговорных', image: '/images/tinting-bright-interior.webp' },
-  { icon: '📸', title: 'Фотопечать на плёнке', description: 'UV-печать (от 2 150 ₽/м²), сольвентная (от 1 250 ₽/м²), прозрачная (от 2 700 ₽/м²)', image: '/images/film-windows-showcases.webp' },
-  { icon: '✂️', title: 'Плоттерная резка', description: 'Фигурные наклейки, логотипы, надписи из ORACAL. Резка от 150 ₽/м²', image: '/images/promo-2.webp' },
-  { icon: '👁️', title: 'Перфорированная One Way Vision', description: 'Печать на окна с видимостью изнутри; от 529 ₽/м² (720 dpi) до 690 ₽/м² (1440 dpi)', image: '/images/solar-protection-offices.webp' },
-  { icon: '🏛️', title: 'Витражные и дихроичные', description: 'Декоративный эффект на стекле без его замены. Смена цвета при угле обзора', image: '/images/promo-3.webp' },
-  { icon: '🏢', title: 'Брендирование офисов', description: 'Оклейка ресепшн, переговорных, коридоров, фасадных перегородок под ключ', image: '/images/modern-office-athermal.webp' },
+  { icon: 'matte', title: 'Матовые и сатиновые', description: 'Оформление перегородок, зонирование open space, разграничение переговорных', image: '/images/tinting-bright-interior.webp' },
+  { icon: 'photo', title: 'Фотопечать на плёнке', description: 'UV-печать (от 2 150 ₽/м²), сольвентная (от 1 250 ₽/м²), прозрачная (от 2 700 ₽/м²)', image: '/images/film-windows-showcases.webp' },
+  { icon: 'cut', title: 'Плоттерная резка', description: 'Фигурные наклейки, логотипы, надписи из ORACAL. Резка от 150 ₽/м²', image: '/images/promo-2.webp' },
+  { icon: 'perforated', title: 'Перфорированная One Way Vision', description: 'Печать на окна с видимостью изнутри; от 529 ₽/м² (720 dpi) до 690 ₽/м² (1440 dpi)', image: '/images/solar-protection-offices.webp' },
+  { icon: 'stained', title: 'Витражные и дихроичные', description: 'Декоративный эффект на стекле без его замены. Смена цвета при угле обзора', image: '/images/promo-3.webp' },
+  { icon: 'branding', title: 'Брендирование офисов', description: 'Оклейка ресепшн, переговорных, коридоров, фасадных перегородок под ключ', image: '/images/modern-office-athermal.webp' },
 ]
 
 export default function DecorativePage() {
@@ -59,7 +59,9 @@ export default function DecorativePage() {
                 <div className="relative h-44 overflow-hidden">
                   <Image src={feature.image} alt={feature.title} fill className="object-cover transition-transform duration-500 hover:scale-110" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-bg-card via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 text-2xl">{feature.icon}</div>
+                  <div className="absolute top-3 left-3 w-10 h-10 rounded-lg bg-accent/20 backdrop-blur-sm border border-accent/30 flex items-center justify-center">
+                    <DecorIcon name={feature.icon} />
+                  </div>
                 </div>
                 <div className="p-6">
                   <CardTitle className="mb-2">{feature.title}</CardTitle>
@@ -135,4 +137,16 @@ export default function DecorativePage() {
       </section>
     </div>
   )
+}
+
+function DecorIcon({ name }: { name: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    matte: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18" strokeDasharray="2 2"/></svg>,
+    photo: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>,
+    cut: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/></svg>,
+    perforated: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1"/><circle cx="12" cy="8" r="1"/><circle cx="16" cy="8" r="1"/><circle cx="8" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="8" cy="16" r="1"/><circle cx="12" cy="16" r="1"/><circle cx="16" cy="16" r="1"/></svg>,
+    stained: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 2L2 12l10 10 10-10z"/><path d="M12 2v20M2 12h20M7 7l10 10M17 7L7 17"/></svg>,
+    branding: <svg viewBox="0 0 24 24" className="w-5 h-5 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg>,
+  }
+  return <>{icons[name] || icons.matte}</>
 }

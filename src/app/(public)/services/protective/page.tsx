@@ -131,9 +131,9 @@ export default function ProtectivePage() {
       <section className="py-16 bg-bg">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <ServiceItem icon="🚗" title="Бесплатный выезд замерщика" description="При заключении договора — бесплатный выезд специалиста для точных замеров и консультации по выбору класса защиты" />
-            <ServiceItem icon="📋" title="Документальное сопровождение" description="Гарантийные талоны, акты выполненных работ, сертификаты соответствия ГОСТ — необходимо для B2B и государственных тендеров" />
-            <ServiceItem icon="✅" title="Гарантия качества" description="Гарантия на материалы до 15 лет, гарантия на монтаж — 2 года. Работаем по договору с юридическим лицом и НДС" />
+            <ServiceItem icon="car" title="Бесплатный выезд замерщика" description="При заключении договора — бесплатный выезд специалиста для точных замеров и консультации по выбору класса защиты" />
+            <ServiceItem icon="doc" title="Документальное сопровождение" description="Гарантийные талоны, акты выполненных работ, сертификаты соответствия ГОСТ — необходимо для B2B и государственных тендеров" />
+            <ServiceItem icon="shield" title="Гарантия качества" description="Гарантия на материалы до 15 лет, гарантия на монтаж — 2 года. Работаем по договору с юридическим лицом и НДС" />
           </div>
 
           <h2 className="text-3xl font-bold text-fg mb-8 text-center" style={{ fontFamily: 'var(--font-display)' }}>Частые вопросы</h2>

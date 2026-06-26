@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 }
 
 const advantages = [
-  { title: 'Управление солнечными потоками', description: 'Точное регулирование солнечными потоками, снижение энергозатрат', icon: '🌡️' },
-  { title: 'Защита от перегрева', description: 'Энергосбережение до 80% снижения теплового воздействия', icon: '💨' },
-  { title: 'Защита от ультрафиолета', description: 'UV-защита 99% — защищает содержимое от выцветания', icon: '☀️' },
-  { title: 'Конфиденциальность', description: 'Визуальная приватность снаружи при сохранении прозрачности внутри', icon: '👁️' },
+  { title: 'Управление солнечными потоками', description: 'Точное регулирование солнечными потоками, снижение энергозатрат', icon: 'temp' },
+  { title: 'Защита от перегрева', description: 'Энергосбережение до 80% снижения теплового воздействия', icon: 'wind' },
+  { title: 'Защита от ультрафиолета', description: 'UV-защита 99% — защищает содержимое от выцветания', icon: 'sun' },
+  { title: 'Конфиденциальность', description: 'Визуальная приватность снаружи при сохранении прозрачности внутри', icon: 'eye' },
 ]
 
 const types = [
@@ -131,7 +131,9 @@ export default function SolarPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((adv, index) => (
               <Card key={index} variant="default" hover className="p-6 text-center">
-                <div className="text-4xl mb-4">{adv.icon}</div>
+                <div className="w-12 h-12 mx-auto rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
+                  <SolarAdvIcon name={adv.icon} />
+                </div>
                 <h3 className="font-semibold text-fg mb-2">{adv.title}</h3>
                 <p className="text-sm text-fg-muted">{adv.description}</p>
               </Card>
@@ -156,4 +158,14 @@ export default function SolarPage() {
       </section>
     </div>
   )
+}
+
+function SolarAdvIcon({ name }: { name: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    temp: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/><circle cx="11.5" cy="17.5" r="1.5"/></svg>,
+    wind: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9.59 4.59A2 2 0 1111 8H2M12.59 19.41A2 2 0 1014 16H2M17.73 7.73A2.5 2.5 0 1119.5 12H2"/></svg>,
+    sun: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>,
+    eye: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>,
+  }
+  return <>{icons[name] || icons.sun}</>
 }

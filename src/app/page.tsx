@@ -376,19 +376,19 @@ export default function HomePage() {
               <Card variant="default" className="p-6 border-danger/30">
                 <h3 className="text-lg font-bold text-danger mb-4">Миф</h3>
                 <ul className="space-y-3 text-sm text-fg-muted">
-                  <li className="flex gap-2"><span className="text-danger flex-shrink-0">✕</span> Любая плёнка 100 мкм — это «бронеплёнка от дронов»</li>
-                  <li className="flex gap-2"><span className="text-danger flex-shrink-0">✕</span> Тёмная плёнка лучше защищает от осколков</li>
-                  <li className="flex gap-2"><span className="text-danger flex-shrink-0">✕</span> DIY-монтаж из рулона с Ozon = профессиональная защита</li>
-                  <li className="flex gap-2"><span className="text-danger flex-shrink-0">✕</span> Плёнка остановит сам дрон, а не только осколки</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-danger flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Любая плёнка 100 мкм — это «бронеплёнка от дронов»</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-danger flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Тёмная плёнка лучше защищает от осколков</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-danger flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> DIY-монтаж из рулона с Ozon = профессиональная защита</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-danger flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg> Плёнка остановит сам дрон, а не только осколки</li>
                 </ul>
               </Card>
               <Card variant="default" className="p-6 border-accent/30">
                 <h3 className="text-lg font-bold text-accent mb-4">Реальность</h3>
                 <ul className="space-y-3 text-sm text-fg-muted">
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Класс А1 (Р2А) требует 300–336 мкм, не 100. Испытания по ГОСТ 30826-2014: стальной шар 4 кг с высоты 3,5 м</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Цвет не влияет на ударостойкость — важна толщина и структура многослойного полиэстера</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Пузыри и пыль под DIY-плёнкой снижают адгезию на 40–60%. При ударе плёнка отслаивается</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Плёнка удерживает осколки при взрыве — не останавливает снаряд. Классы А1–А3 регламентированы ГОСТ 30826-2014</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg> Класс А1 (Р2А) требует 300–336 мкм, не 100. Испытания по ГОСТ 30826-2014: стальной шар 4 кг с высоты 3,5 м</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg> Цвет не влияет на ударостойкость — важна толщина и структура многослойного полиэстера</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg> Пузыри и пыль под DIY-плёнкой снижают адгезию на 40–60%. При ударе плёнка отслаивается</li>
+                  <li className="flex gap-2"><svg viewBox="0 0 24 24" className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg> Плёнка удерживает осколки при взрыве — не останавливает снаряд. Классы А1–А3 регламентированы ГОСТ 30826-2014</li>
                 </ul>
               </Card>
             </div>

@@ -60,13 +60,14 @@ export function Header() {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-12 h-12 transition-all group-hover:scale-105">
-                <Image
-                  src="/images/logo.png"
-                  alt="ПЛЕНКИН — архитектурные плёнки"
-                  fill
-                  className="object-contain"
-                  priority
-                />
+              <Image
+                src="/images/logo.png"
+                alt="ПЛЕНКИН — архитектурные плёнки"
+                fill
+                className="object-contain"
+                style={{ filter: 'brightness(0) saturate(100%) invert(75%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%)' }}
+                priority
+              />
               </div>
               <div>
                 <div className="font-bold text-xl text-accent" style={{ fontFamily: 'var(--font-display)' }}>ПЛЕНКИН</div>

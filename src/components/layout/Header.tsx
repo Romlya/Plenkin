@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { Menu, X, Phone, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navigation = [
@@ -58,22 +57,12 @@ export function Header() {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-12 h-12 transition-all group-hover:scale-105">
-              <Image
-                src="/images/logo.png"
-                alt="ПЛЕНКИН — архитектурные плёнки"
-                fill
-                className="object-contain"
-                style={{ filter: 'brightness(0) invert(1)' }}
-                priority
-              />
-              </div>
-              <div>
-                <div className="font-bold text-xl text-accent" style={{ fontFamily: 'var(--font-display)' }}>ПЛЕНКИН</div>
-                <div className="text-xs text-fg-muted -mt-0.5">Архитектурные плёнки</div>
-              </div>
-            </Link>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="flex flex-col">
+              <div className="font-bold text-2xl text-accent transition-all group-hover:scale-105" style={{ fontFamily: 'var(--font-display)' }}>ПЛЕНКИН</div>
+              <div className="text-xs text-fg-muted -mt-0.5 tracking-wider">АРХИТЕКТУРНЫЕ ПЛЁНКИ</div>
+            </div>
+          </Link>
 
             <nav className="hidden lg:flex items-center gap-8">
               {navigation.map((item) => (
@@ -165,9 +154,6 @@ export function Header() {
             <div className="bg-dot-pattern h-full flex flex-col">
               <div className="flex items-center justify-between p-4 border-b border-border">
                 <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
-                  <div className="relative w-10 h-10">
-                    <Image src="/images/logo.png" alt="ПЛЕНКИН" fill className="object-contain" />
-                  </div>
                   <div className="font-bold text-lg text-accent" style={{ fontFamily: 'var(--font-display)' }}>ПЛЕНКИН</div>
                 </Link>
                 <button

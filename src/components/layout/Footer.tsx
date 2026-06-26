@@ -16,6 +16,7 @@ const footerLinks = {
   company: [
     { name: 'Портфолио', href: '/portfolio' },
     { name: 'Калькулятор', href: '/calculator' },
+    { name: 'Госзаказчикам', href: '/gov' },
     { name: 'Сертификаты', href: '/certificates' },
     { name: 'Блог', href: '/blog' },
     { name: 'FAQ', href: '/faq' },

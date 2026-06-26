@@ -12,7 +12,7 @@ const navigation = [
   { name: 'Услуги', href: '/services', hasDropdown: true },
   { name: 'Портфолио', href: '/portfolio' },
   { name: 'Калькулятор', href: '/calculator' },
-  { name: 'Сертификаты', href: '/certificates' },
+  { name: 'Госзаказчикам', href: '/gov' },
   { name: 'Блог', href: '/blog' },
   { name: 'FAQ', href: '/faq' },
 ]

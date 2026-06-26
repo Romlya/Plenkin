@@ -9,6 +9,11 @@ const blogSlugs = [
   'smart-plenki-pdlc',
   'antigraffiti-antivandal',
   'normativnaya-baza-gost',
+  'gid-plenka-dlya-shkoly',
+  'gid-broneplenka-bank',
+  'gid-solncezashchita-ofis',
+  'gid-brendirovanie-ofisa',
+  'gid-plenka-kvartira',
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
   const staticPages = [
-    '', '/services', '/portfolio', '/calculator', '/certificates', '/blog', '/faq', '/contacts', '/privacy',
+    '', '/services', '/portfolio', '/calculator', '/certificates', '/blog', '/faq', '/contacts', '/privacy', '/gov',
     '/services/protective', '/services/solar', '/services/decorative',
     '/services/photo-print', '/services/plotter', '/services/branding', '/services/smart',
   ]

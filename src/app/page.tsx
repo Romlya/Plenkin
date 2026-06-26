@@ -57,12 +57,12 @@ const reviews = [
 ]
 
 const targetSegments = [
-  { icon: '🏫', title: 'Школы и детсады', desc: 'Противоосколочные плёнки К4 по требованиям МЧС. Документы для приёмки.' },
-  { icon: '🏢', title: 'Офисы и БЦ', desc: 'Брендирование, матирование, солнцезащита. Монтаж в выходные.' },
-  { icon: '🛒', title: 'ТЦ и ритейл', desc: 'Тонировка витрин, One Way Vision, антивандальная защита.' },
-  { icon: '🏦', title: 'Банки и ювелирные', desc: 'Бронеплёнки Р3А–Р4А. Сертификаты для страховых.' },
-  { icon: '🏗️', title: 'Госучреждения', desc: 'Работа по 44-ФЗ и 223-ФЗ. Полный пакет документов.' },
-  { icon: '🏠', title: 'Частные клиенты', desc: 'Тонировка балконов, защита от осколков, декор.' },
+  { icon: 'school', title: 'Школы и детсады', desc: 'Противоосколочные плёнки К4 по требованиям МЧС. Документы для приёмки.' },
+  { icon: 'office', title: 'Офисы и БЦ', desc: 'Брендирование, матирование, солнцезащита. Монтаж в выходные.' },
+  { icon: 'shop', title: 'ТЦ и ритейл', desc: 'Тонировка витрин, One Way Vision, антивандальная защита.' },
+  { icon: 'bank', title: 'Банки и ювелирные', desc: 'Бронеплёнки Р3А–Р4А. Сертификаты для страховых.' },
+  { icon: 'gov', title: 'Госучреждения', desc: 'Работа по 44-ФЗ и 223-ФЗ. Полный пакет документов.' },
+  { icon: 'home', title: 'Частные клиенты', desc: 'Тонировка балконов, защита от осколков, декор.' },
 ]
 
 const galleryImages = [
@@ -112,8 +112,10 @@ export default function HomePage() {
           <MotionStagger className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {targetSegments.map((seg, i) => (
               <MotionItem key={i}>
-                <Card variant="glass" className="p-6 h-full">
-                  <div className="text-3xl mb-3">{seg.icon}</div>
+                <Card variant="glass" className="p-6 h-full group">
+                  <div className="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 transition-all group-hover:bg-accent/20 group-hover:border-accent/40">
+                    <SegmentIcon name={seg.icon} />
+                  </div>
                   <h3 className="font-bold text-fg mb-2 text-sm md:text-base">{seg.title}</h3>
                   <p className="text-xs md:text-sm text-fg-muted leading-relaxed">{seg.desc}</p>
                 </Card>
@@ -439,4 +441,16 @@ function ServiceIcon({ name }: { name: string }) {
     smart: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></svg>,
   }
   return <>{icons[name] || icons.shield}</>
+}
+
+function SegmentIcon({ name }: { name: string }) {
+  const icons: Record<string, React.ReactNode> = {
+    school: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 4L2 10l10 6 10-6-10-6z"/><path d="M6 12v5c0 1 2 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>,
+    office: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>,
+    shop: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 9l1.5-5h15L21 9"/><path d="M3 9v11a1 1 0 001 1h16a1 1 0 001-1V9"/><path d="M3 9h18"/><path d="M9 20v-6h6v6"/></svg>,
+    bank: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 10l9-6 9 6"/><path d="M5 10v8M9 10v8M15 10v8M19 10v8"/><path d="M3 21h18"/><circle cx="12" cy="7.5" r="1.5"/></svg>,
+    gov: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 20h20M4 20V10M8 20V10M12 20V10M16 20V10M20 20V10"/><path d="M2 10l10-7 10 7"/><circle cx="12" cy="3.5" r="1"/></svg>,
+    home: <svg viewBox="0 0 24 24" className="w-6 h-6 text-accent" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>,
+  }
+  return <>{icons[name] || icons.office}</>
 }

@@ -74,17 +74,37 @@ export function Hero() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-sm text-accent font-medium">Москва и МО · Работаем с 2009 года</span>
+                <span className="text-sm text-accent font-medium">Москва и МО · С 2009 года</span>
               </div>
 
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-fg mb-6 leading-tight" style={{ fontFamily: 'var(--font-display)' }}>
                 Защищаем окна —<br />
                 <span className="text-gradient-accent">защищаем людей</span>
               </h1>
-              <p className="text-lg md:text-xl text-fg-muted mb-10 max-w-2xl mx-auto leading-relaxed">
-                Комплексный провайдер архитектурных плёнок: противоосколочные и бронезащитные плёнки (классы К4–Р4А),
-                солнцезащитные и атермальные, декоративное оформление офисов — под ключ с гарантией производителя.
+
+              <p className="text-lg md:text-xl text-fg-muted mb-8 max-w-2xl mx-auto leading-relaxed">
+                Противоосколочные и бронеплёнки (К4–Р4А), солнцезащита, декор и смарт-плёнки —
+                поставка, монтаж и сервис с документами по ГОСТ и гарантиями до 15 лет.
               </p>
+
+              <div className="flex flex-col gap-2 mb-10 max-w-2xl mx-auto text-left">
+                {[
+                  'Защита от осколков и БПЛА для школ, офисов, ТЦ',
+                  'Снижение жары и затрат на кондиционирование до 80%',
+                  'Декоративное зонирование без замены стекла',
+                ].map((point, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                    className="flex items-center gap-3 text-sm md:text-base text-fg-muted"
+                  >
+                    <span className="text-accent flex-shrink-0">—</span>
+                    {point}
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
 
             <motion.div
@@ -96,17 +116,17 @@ export function Hero() {
               <Link href="/calculator">
                 <Button size="xl" className="w-full sm:w-auto">Рассчитать стоимость</Button>
               </Link>
-              <Link href="/portfolio">
-                <Button variant="secondary" size="xl" className="w-full sm:w-auto">Посмотреть кейсы</Button>
+              <Link href="/contacts">
+                <Button variant="secondary" size="xl" className="w-full sm:w-auto">Заказать выезд замерщика</Button>
               </Link>
             </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {[
-                { value: 5200, suffix: '', label: 'м² остекления' },
-                { value: 15, suffix: '', label: 'лет на рынке' },
-                { value: 120, suffix: '', label: 'довольных клиентов' },
-                { value: 0, suffix: '/7', label: 'поддержка', isStatic: true },
+                { value: 5200, suffix: '+', label: 'м² остекления по ГОСТ' },
+                { value: 0, suffix: '', label: 'с 2009 года', isStatic: true, staticText: '2009' },
+                { value: 200, suffix: '+', label: 'объектов в Москве и МО' },
+                { value: 0, suffix: '', label: 'поддержка 24/7', isStatic: true, staticText: '24/7' },
               ].map((stat, i) => (
                 <motion.div
                   key={i}
@@ -117,7 +137,7 @@ export function Hero() {
                 >
                   {stat.isStatic ? (
                     <div className="text-3xl md:text-4xl font-bold text-accent mb-2" style={{ fontFamily: 'var(--font-display)' }}>
-                      24{stat.suffix}
+                      {stat.staticText}
                     </div>
                   ) : (
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />

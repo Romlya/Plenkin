@@ -6,28 +6,63 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Hero } from '@/components/sections/Hero'
 import { MotionSection, MotionStagger, MotionItem } from '@/components/sections/Motion'
+import { QuickLeadForm } from '@/components/sections/QuickLeadForm'
 
 const services = [
-  { title: 'Противоосколочные и бронирующие', slug: 'protective', description: 'Классы К4–Р4А по ГОСТ. Защита от осколков, взлома, БПЛА.', priceFrom: 'от 1 100 ₽/м²', icon: 'shield', image: '/images/showcase-protection.webp' },
-  { title: 'Солнцезащитные и атермальные', slug: 'solar', description: 'Зеркальные, атермальные, керамические. Снижение жары до 80%.', priceFrom: 'от 650 ₽/м²', icon: 'sun', image: '/images/sun-protection-interior.webp' },
-  { title: 'Декоративные плёнки', slug: 'decorative', description: 'Матирование, витражи, дихроика. Зонирование без замены стекла.', priceFrom: 'от 650 ₽/м²', icon: 'art', image: '/images/tinting-bright-interior.webp' },
-  { title: 'Фотопечать на плёнке', slug: 'photo-print', description: 'UV, сольвентная, латексная печать. Прозрачные и перфорированные.', priceFrom: 'от 1 250 ₽/м²', icon: 'print', image: '/images/film-windows-showcases.webp' },
-  { title: 'Плоттерная резка', slug: 'plotter', description: 'ORACAL 641/751/8500. Логотипы, буквы, надписи, навигация.', priceFrom: 'от 150 ₽/м²', icon: 'cut', image: '/images/promo-2.webp' },
-  { title: 'Брендирование офисов', slug: 'branding', description: 'Под ключ: ресепшн, переговорные, коридоры, фасадные перегородки.', priceFrom: 'от 750 ₽/м²', icon: 'brand', image: '/images/modern-office-athermal.webp' },
-  { title: 'Смарт-плёнки (PDLC)', slug: 'smart', description: 'Электрохромные: матовое/прозрачное по запросу. Управление со смартфона.', priceFrom: 'от 15 000 ₽/м²', icon: 'smart', image: '/images/office-solar-film.webp' },
+  { title: 'Противоосколочные и бронеплёнки', slug: 'protective', description: 'Классы К4–Р4А по ГОСТ 30826-2014: защита от осколков, взлома и БПЛА для школ, ТЦ и офисов.', priceFrom: 'от 1 100 ₽/м²', icon: 'shield', image: '/images/showcase-protection.webp', forWhom: 'Школы, банки, ТЦ, госучреждения' },
+  { title: 'Солнцезащитные и атермальные', slug: 'solar', description: 'Зеркальные, атермальные, керамические. Снижение тепловой нагрузки до 80% для офисов и квартир.', priceFrom: 'от 650 ₽/м²', icon: 'sun', image: '/images/sun-protection-interior.webp', forWhom: 'Офисы, ЖК, квартиры, балконы' },
+  { title: 'Декоративные плёнки', slug: 'decorative', description: 'Матирование, витражи, дихроика. Зонирование переговорных и open space без замены стекла.', priceFrom: 'от 650 ₽/м²', icon: 'art', image: '/images/tinting-bright-interior.webp', forWhom: 'Офисы, рестораны, клиники' },
+  { title: 'Фотопечать на плёнке', slug: 'photo-print', description: 'UV, сольвентная, латексная печать. Брендирование витрин и навигация в ТЦ и бизнес-центрах.', priceFrom: 'от 1 250 ₽/м²', icon: 'print', image: '/images/film-windows-showcases.webp', forWhom: 'Ритейл, ТЦ, брендирование' },
+  { title: 'Плоттерная резка', slug: 'plotter', description: 'ORACAL 641/751/8500. Логотипы, буквы, навигация для офисов и торговых залов.', priceFrom: 'от 150 ₽/м²', icon: 'cut', image: '/images/promo-2.webp', forWhom: 'Офисы, ТЦ, мероприятия' },
+  { title: 'Брендирование офисов', slug: 'branding', description: 'Поставка, монтаж и сервис: ресепшн, переговорные, коридоры, фасадные перегородки.', priceFrom: 'от 750 ₽/м²', icon: 'brand', image: '/images/modern-office-athermal.webp', forWhom: 'Бизнес-центры, стартапы' },
+  { title: 'Смарт-плёнки (PDLC)', slug: 'smart', description: 'Электрохромные: матовое/прозрачное по запросу. Переговорные, кабинеты руководителей.', priceFrom: 'от 15 000 ₽/м²', icon: 'smart', image: '/images/office-solar-film.webp', forWhom: 'VIP-зоны, переговорные, клиники' },
 ]
 
 const advantages = [
-  { title: 'Сертификаты ГОСТ', description: 'Реальные классы защиты К4–Р4А, подтверждённые испытаниями по ГОСТ 30826-2014. Не «маркетинговые» — документальные.', number: '01' },
-  { title: 'Гарантия до 15 лет', description: 'На материалы — гарантия производителя. На монтаж — 2 года. Рекламации редки: монтажники с опытом 5+ лет.', number: '02' },
-  { title: 'Бесплатный замерщик', description: 'Выезд специалиста по Москве и МО — бесплатно при заключении договора. Точные замеры, консультация на объекте.', number: '03' },
-  { title: 'Договор и НДС', description: 'Работаем с юридическими лицами. Полный пакет документов: договор, акт, гарантийный талон. Госзакупки 44-ФЗ и 223-ФЗ.', number: '04' },
+  { title: 'Сертификаты ГОСТ', description: 'Протоколы испытаний и сертификаты по ГОСТ 30826-2014 и ГОСТ Р 51136-2008 предоставляем по запросу. Классы подтверждены документально, не «на словах».', number: '01' },
+  { title: 'Гарантия до 15 лет', description: 'На материалы — гарантия производителя. На монтаж — 2 года. Покрываем: отслоения, выгорание, пузырьки, потерю адгезии. Рекламации редки: монтажники с опытом 5+ лет.', number: '02' },
+  { title: 'Бесплатный замерщик', description: 'Выезд специалиста по Москве и МО — в течение 1–2 дней. Точные замеры, консультация по выбору класса защиты, предварительная смета на объекте.', number: '03' },
+  { title: 'Госзакупки 44-ФЗ и 223-ФЗ', description: 'Полный пакет документов: договор, акт, гарантийный талон, сертификаты. Готовые типовые формулировки для ТЗ. Работаем по типовым формам заказчика или предлагаем свой шаблон.', number: '04' },
+  { title: 'Проектирование решений', description: 'Подбираем плёнку под требования МЧС, страховщиков и внутренних регламентов безопасности. Учитываем тип стекла, ориентацию окон, нормативную базу.', number: '05' },
 ]
 
 const cases = [
-  { title: 'Школа «Гармония»', category: 'Образование', area: '420 м²', desc: 'Противоосколочная плёнка К4 на все окна. Защита 800 учеников от осколков при ударах БПЛА.', class: 'К4', image: '/images/sun-protection-all.webp' },
-  { title: 'Ювелирный салон', category: 'Ритейл', area: '450 м²', desc: 'Бронеплёнка Р3А (400 мкм) на витрины + антиграффити. Класс защиты для страховой компании.', class: 'Р3А', image: '/images/showcase-protection.webp' },
-  { title: 'ЖК «ЭкоЛюкс»', category: 'Жильё', area: '1200 м²', desc: 'Атермальная плёнка на фасадное остекление. Снижение расходов на кондиционирование на 80%.', class: 'IR-cut', image: '/images/cozy-balcony-city-view.webp' },
+  { title: 'Школа «Гармония»', category: 'Образование', area: '420 м²', desc: 'Противоосколочная плёнка К4 на все окна. Защита 800 учеников от осколков при ударах БПЛА.', class: 'К4', image: '/images/sun-protection-all.webp', result: 'Соответствие требованиям МЧС, акт приёмки без замечаний' },
+  { title: 'Ювелирный салон', category: 'Ритейл', area: '450 м²', desc: 'Бронеплёнка Р3А (400 мкм) на витрины + антиграффити. Класс защиты для страховой компании.', class: 'Р3А', image: '/images/showcase-protection.webp', result: 'Страховая приняла объект без доп. условий' },
+  { title: 'ЖК «ЭкоЛюкс»', category: 'Жильё', area: '1200 м²', desc: 'Атермальная плёнка на фасадное остекление. Снижение расходов на кондиционирование.', class: 'IR-cut', image: '/images/cozy-balcony-city-view.webp', result: 'Снижение затрат на кондиционирование до 80% по данным заказчика' },
+]
+
+const workSteps = [
+  { num: '01', title: 'Заявка', desc: 'Звонок или форма на сайте. Предварительный расчёт по телефону на основе ваших размеров и фото — за 15 минут.' },
+  { num: '02', title: 'Замер', desc: 'Бесплатный выезд замерщика в течение 1–2 дней. Точные размеры, выбор плёнки, смета на объекте.' },
+  { num: '03', title: 'Договор', desc: 'Работаем по типовым формам заказчика или предлагаем свой шаблон, согласованный с юристами. Предоплата 50%.' },
+  { num: '04', title: 'Монтаж', desc: 'Профессиональная установка. От 20 минут на окно, типичный объект — 1–3 дня. Уборка после работ.' },
+  { num: '05', title: 'Приёмка', desc: 'Сдача объекта, подписание акта. Оплата остатка. Передача гарантийного талона.' },
+  { num: '06', title: 'Гарантия', desc: 'Гарантийный талон до 15 лет. Покрываем отслоения, выгорание, пузырьки, потерю адгезии. Бесплатное сервисное обслуживание.' },
+]
+
+const protectionScale = [
+  { label: 'К4', color: '#22c55e', price: '1 100₽', desc: 'Базовая защита от осколков стекла', objects: 'Жильё, школы, торговые залы' },
+  { label: 'Р1А', color: '#16a34a', price: '1 500₽', desc: 'Умеренный удар', objects: 'Офисы, витрины в спокойных районах' },
+  { label: 'Р2А', color: '#eab308', price: '2 200₽', desc: 'А1 — стальной шар 4 кг, 3,5 м', objects: 'ТЦ с сигнализацией, офисы' },
+  { label: 'Р3А', color: '#f97316', price: '3 400₽', desc: 'А2 — стальной шар 4 кг, 6,5 м', objects: 'Банки, ювелирные, музеи' },
+  { label: 'Р4А', color: '#ef4444', price: '4 000₽', desc: 'А3 — стальной шар 4 кг, 9,5 м', objects: 'Госучреждения, спецобъекты' },
+]
+
+const reviews = [
+  { name: 'Алексей М.', role: 'Директор ТЦ «Гранд Олимп»', city: 'Москва', type: 'Торговый центр', text: 'Тонировка 800 м² витрин + One Way Vision. Сделали за 4 дня, без остановки работы ТЦ. Энергозатраты на кондиционирование снизились заметно — замеры подтвердили 75%.', rating: 5 },
+  { name: 'Ирина К.', role: 'Управляющая школой «Гармония»', city: 'Москва', type: 'Школа', text: 'После событий с дронами срочно нужна была защита окон. ПЛЕНКИН установили плёнку К4 на 420 м² за 2 дня. Документы для МЧС подготовили сами — акт приёмки прошёл без замечаний.', rating: 5 },
+  { name: 'Дмитрий С.', role: 'Владелец ювелирного салона', city: 'Москва', type: 'Ювелирный салон', text: 'Бронеплёнка Р3А на витрины — страховая сразу приняла. Все сертификаты, гарантийный талон. Монтаж без пузырей, аккуратно.', rating: 5 },
+  { name: 'Марина В.', role: 'Финансовый директор', city: 'Москва', type: 'Бизнес-центр', text: 'Заказывали брендирование офиса при переезде — сжатые сроки, нужно было за выходные. Бригада работала в субботу и воскресенье с 8:00 до 22:00, в понедельник сотрудники пришли в готовый офис. Матирование + фотопечать + навигация — 180 м².', rating: 5 },
+]
+
+const targetSegments = [
+  { icon: '🏫', title: 'Школы и детсады', desc: 'Противоосколочные плёнки К4 по требованиям МЧС. Документы для приёмки.' },
+  { icon: '🏢', title: 'Офисы и БЦ', desc: 'Брендирование, матирование, солнцезащита. Монтаж в выходные.' },
+  { icon: '🛒', title: 'ТЦ и ритейл', desc: 'Тонировка витрин, One Way Vision, антивандальная защита.' },
+  { icon: '🏦', title: 'Банки и ювелирные', desc: 'Бронеплёнки Р3А–Р4А. Сертификаты для страховых.' },
+  { icon: '🏗️', title: 'Госучреждения', desc: 'Работа по 44-ФЗ и 223-ФЗ. Полный пакет документов.' },
+  { icon: '🏠', title: 'Частные клиенты', desc: 'Тонировка балконов, защита от осколков, декор.' },
 ]
 
 const galleryImages = [
@@ -56,21 +91,47 @@ export default function HomePage() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-bg/80 to-transparent" />
-              <div className="absolute bottom-3 left-4 text-sm text-fg font-medium">{img.title}</div>
+              <div className="absolute bottom-3 left-4 text-sm text-fg font-medium whitespace-nowrap">{img.title}</div>
             </div>
           ))}
         </div>
+      </MotionSection>
+
+      {/* Для кого мы работаем */}
+      <MotionSection className="py-20 bg-bg">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
+              Для кого мы работаем
+            </h2>
+            <p className="text-lg text-fg-muted max-w-2xl mx-auto">
+              Поставляем и монтируем плёнки для объектов любой сложности
+            </p>
+          </div>
+
+          <MotionStagger className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {targetSegments.map((seg, i) => (
+              <MotionItem key={i}>
+                <Card variant="glass" className="p-6 h-full">
+                  <div className="text-3xl mb-3">{seg.icon}</div>
+                  <h3 className="font-bold text-fg mb-2 text-sm md:text-base">{seg.title}</h3>
+                  <p className="text-xs md:text-sm text-fg-muted leading-relaxed">{seg.desc}</p>
+                </Card>
+              </MotionItem>
+            ))}
+          </MotionStagger>
+        </Container>
       </MotionSection>
 
       <MotionSection className="py-20 bg-bg-elevated">
         <Container>
           <div className="text-center mb-16">
             <Badge variant="accent" className="mb-4">7 направлений</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance">
+            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
               Полный спектр архитектурных плёнок
             </h2>
             <p className="text-lg text-fg-muted max-w-2xl mx-auto">
-              От базовой противоосколочности до смарт-стекла. Выбираем оптимальное решение под задачу и бюджет.
+              От базовой противоосколочности до смарт-стекла. Подбираем решение под задачу, бюджет и нормативные требования.
             </p>
           </div>
 
@@ -94,12 +155,11 @@ export default function HomePage() {
                       </div>
                     </div>
                     <div className="p-6">
-                      <div className="flex items-start justify-between mb-3">
-                        <h3 className="text-lg font-bold text-fg group-hover:text-accent transition-colors">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <p className="text-sm text-fg-muted leading-relaxed mb-4">{service.description}</p>
+                      <h3 className="text-lg font-bold text-fg group-hover:text-accent transition-colors mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm text-fg-muted leading-relaxed mb-3">{service.description}</p>
+                      <div className="text-xs text-accent mb-4">Для кого: {service.forWhom}</div>
                       <div className="flex items-center justify-between pt-4 border-t border-border">
                         <span className="text-xs font-mono text-accent">{service.priceFrom}</span>
                         <span className="text-sm text-fg-muted group-hover:text-accent transition-colors">Подробнее →</span>
@@ -116,23 +176,21 @@ export default function HomePage() {
       <MotionSection className="py-20 bg-bg">
         <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance">
+            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
               Почему выбирают ПЛЕНКИН
             </h2>
             <p className="text-lg text-fg-muted max-w-2xl mx-auto">
-              Мы не просто клеим плёнку. Мы проектируем защиту с документальным подтверждением.
+              Поставляем и монтируем плёнки с документальным подтверждением классов защиты
             </p>
           </div>
 
-          <MotionStagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {advantages.map((adv) => (
               <MotionItem key={adv.number}>
-                <Card variant="default" className="p-8 flex gap-6 h-full">
-                  <div className="text-5xl font-bold text-accent/30 font-mono flex-shrink-0">{adv.number}</div>
-                  <div>
-                    <h3 className="text-xl font-bold text-fg mb-2">{adv.title}</h3>
-                    <p className="text-fg-muted leading-relaxed">{adv.description}</p>
-                  </div>
+                <Card variant="default" className="p-6 h-full">
+                  <div className="text-4xl font-bold text-accent/30 font-mono mb-3">{adv.number}</div>
+                  <h3 className="text-lg font-bold text-fg mb-2">{adv.title}</h3>
+                  <p className="text-sm text-fg-muted leading-relaxed">{adv.description}</p>
                 </Card>
               </MotionItem>
             ))}
@@ -143,18 +201,18 @@ export default function HomePage() {
       <MotionSection className="py-20 bg-gradient-to-b from-bg to-bg-elevated">
         <Container>
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance">
+            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
               Кейсы и объекты
             </h2>
             <p className="text-lg text-fg-muted max-w-2xl mx-auto">
-              Более 5200 м² обработанного остекления. Каждый объект — это решение конкретной задачи.
+              Более 5200 м² остекления с плёнкой безопасности по ГОСТ. Каждый объект — решение конкретной задачи.
             </p>
           </div>
 
           <MotionStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {cases.map((project) => (
               <MotionItem key={project.title}>
-                <Card variant="glass" hover className="overflow-hidden h-full">
+                <Card variant="glass" hover className="overflow-hidden h-full flex flex-col">
                   <div className="relative h-56 overflow-hidden">
                     <Image
                       src={project.image}
@@ -169,13 +227,17 @@ export default function HomePage() {
                       </span>
                     </div>
                   </div>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex-1 flex flex-col">
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant="accent" size="sm">{project.category}</Badge>
                       <span className="text-sm text-fg-muted">{project.area}</span>
                     </div>
                     <h3 className="text-lg font-bold text-fg mb-2">{project.title}</h3>
-                    <p className="text-sm text-fg-muted leading-relaxed">{project.desc}</p>
+                    <p className="text-sm text-fg-muted leading-relaxed mb-3">{project.desc}</p>
+                    <div className="mt-auto pt-3 border-t border-border">
+                      <div className="text-xs text-fg-subtle mb-1">Результат:</div>
+                      <div className="text-sm text-accent font-medium">{project.result}</div>
+                    </div>
                   </CardContent>
                 </Card>
               </MotionItem>
@@ -183,8 +245,8 @@ export default function HomePage() {
           </MotionStagger>
 
           <div className="text-center mt-12">
-            <Link href="/portfolio">
-              <Button variant="secondary" size="lg">Смотреть все проекты</Button>
+            <Link href="/contacts">
+              <Button variant="secondary" size="lg">Запросить похожее решение для вашего объекта</Button>
             </Link>
           </div>
         </Container>
@@ -202,14 +264,7 @@ export default function HomePage() {
           </div>
 
           <MotionStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { num: '01', title: 'Заявка', desc: 'Звонок или форма на сайте. Консультация по телефону — 15 минут.' },
-              { num: '02', title: 'Замер', desc: 'Бесплатный выезд замерщика. Точные размеры, выбор плёнки, смета.' },
-              { num: '03', title: 'Договор', desc: 'Подписание договора, спецификация, график работ. Предоплата 50%.' },
-              { num: '04', title: 'Монтаж', desc: 'Профессиональная установка. От 20 мин на окно. Уборка после работ.' },
-              { num: '05', title: 'Приёмка', desc: 'Сдача объекта, подписание акта. Оплата остатка.' },
-              { num: '06', title: 'Гарантия', desc: 'Гарантийный талон до 15 лет. Бесплатное сервисное обслуживание.' },
-            ].map((step) => (
+            {workSteps.map((step) => (
               <MotionItem key={step.num}>
                 <Card variant="glass" className="p-6 h-full">
                   <div className="text-3xl font-bold text-accent/30 font-mono mb-3">{step.num}</div>
@@ -229,24 +284,19 @@ export default function HomePage() {
               Классы защиты — цветовая шкала
             </h2>
             <p className="text-lg text-fg-muted max-w-2xl mx-auto">
-              От базовой противоосколочности до защиты банков. Выберите свой класс по ГОСТ.
+              От базовой противоосколочности до защиты банков. Выберите класс по ГОСТ 30826-2014.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-2 mb-6">
-              {[
-                { label: 'К4', color: '#22c55e', price: '1 100₽', desc: 'База' },
-                { label: 'Р1А', color: '#16a34a', price: '1 500₽', desc: 'Умеренный' },
-                { label: 'Р2А', color: '#eab308', price: '2 200₽', desc: 'А1' },
-                { label: 'Р3А', color: '#f97316', price: '3 400₽', desc: 'А2' },
-                { label: 'Р4А', color: '#ef4444', price: '4 000₽', desc: 'А3' },
-              ].map((cls) => (
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-2 mb-8">
+              {protectionScale.map((cls) => (
                 <div key={cls.label} className="flex-1 group">
                   <div className="h-3 rounded-full transition-all group-hover:h-4" style={{ backgroundColor: cls.color }} />
                   <div className="mt-3 text-center">
                     <div className="font-bold text-fg text-sm">{cls.label}</div>
-                    <div className="text-xs text-fg-muted">{cls.desc}</div>
+                    <div className="text-xs text-fg-muted mt-1">{cls.desc}</div>
+                    <div className="text-xs text-fg-subtle mt-1">{cls.objects}</div>
                     <div className="text-xs font-mono text-accent mt-1">от {cls.price}/м²</div>
                   </div>
                 </div>
@@ -254,14 +304,14 @@ export default function HomePage() {
             </div>
             <div className="text-center">
               <Link href="/services/protective">
-                <Button variant="secondary" size="md">Подробнее о классах →</Button>
+                <Button variant="secondary" size="md">Подробнее о классах и испытаниях ГОСТ →</Button>
               </Link>
             </div>
           </div>
         </Container>
       </MotionSection>
 
-      <MotionSection className="py-20 bg-bg-elevated">
+      <MotionSection className="py-20 bg-bg">
         <Container>
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
@@ -272,12 +322,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <MotionStagger className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { name: 'Алексей М.', role: 'Директор ТЦ «Гранд Олимп»', text: 'Заказывали тонировку 800 м² витрин + One Way Vision. Сделали за 4 дня, без простоев. Энергозатраты на кондиционирование снизились заметно.', rating: 5 },
-              { name: 'Ирина К.', role: 'Управляющая школой «Гармония»', text: 'После событий с дронами срочно нужна была защита окон. ПЛЕНКИН установили плёнку К4 на 420 м² за 2 дня. Документы для МЧС подготовили сами.', rating: 5 },
-              { name: 'Дмитрий С.', role: 'Владелец ювелирного салона', text: 'Бронеплёнка Р3А на витрины — страховая сразу приняла. Дали все сертификаты, гарантийный талон. Профессиональный монтаж, без пузырей.', rating: 5 },
-            ].map((review, i) => (
+          <MotionStagger className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {reviews.map((review, i) => (
               <MotionItem key={i}>
                 <Card variant="glass" className="p-6 h-full flex flex-col">
                   <div className="flex gap-1 mb-4">
@@ -292,19 +338,27 @@ export default function HomePage() {
                     <div className="w-10 h-10 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center text-accent font-bold">
                       {review.name.charAt(0)}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <div className="text-sm font-semibold text-fg">{review.name}</div>
                       <div className="text-xs text-fg-muted">{review.role}</div>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-xs text-fg-muted">{review.type}</div>
+                      <div className="text-xs text-fg-subtle">{review.city}</div>
                     </div>
                   </div>
                 </Card>
               </MotionItem>
             ))}
           </MotionStagger>
+
+          <div className="text-center mt-8">
+            <p className="text-xs text-fg-subtle">Оригиналы отзывов и благодарственные письма доступны по запросу.</p>
+          </div>
         </Container>
       </MotionSection>
 
-      <MotionSection className="py-20 bg-bg">
+      <MotionSection className="py-20 bg-bg-elevated">
         <Container>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -329,29 +383,43 @@ export default function HomePage() {
               <Card variant="default" className="p-6 border-accent/30">
                 <h3 className="text-lg font-bold text-accent mb-4">Реальность</h3>
                 <ul className="space-y-3 text-sm text-fg-muted">
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Класс А1 (Р2А) требует 300–336 мкм, не 100</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Цвет не влияет на ударостойкость — важна толщина</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Пузыри и пыль под DIY-плёнкой снижают защиту на 40–60%</li>
-                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Плёнка удерживает осколки при взрыве — не останавливает снаряд</li>
+                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Класс А1 (Р2А) требует 300–336 мкм, не 100. Испытания по ГОСТ 30826-2014: стальной шар 4 кг с высоты 3,5 м</li>
+                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Цвет не влияет на ударостойкость — важна толщина и структура многослойного полиэстера</li>
+                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Пузыри и пыль под DIY-плёнкой снижают адгезию на 40–60%. При ударе плёнка отслаивается</li>
+                  <li className="flex gap-2"><span className="text-accent flex-shrink-0">✓</span> Плёнка удерживает осколки при взрыве — не останавливает снаряд. Классы А1–А3 регламентированы ГОСТ 30826-2014</li>
                 </ul>
               </Card>
+            </div>
+
+            <div className="mt-8 p-4 rounded-xl bg-bg-card border border-border text-center">
+              <p className="text-sm text-fg-muted">
+                Окончательный выбор класса защиты и толщины плёнки выполняется по результатам обследования объекта
+                и с учётом требований заказчика, МЧС и страховщиков.
+              </p>
             </div>
           </div>
         </Container>
       </MotionSection>
 
-      <MotionSection className="py-20 bg-bg-elevated">
+      {/* Финальный CTA с микроформой */}
+      <MotionSection className="py-20 bg-bg">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-fg mb-6 text-balance">
-              Готовы защитить ваши окна?
-            </h2>
-            <p className="text-lg text-fg-muted mb-8">
-              Бесплатный выезд замерщика по Москве и МО. Расчёт стоимости в день обращения.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/calculator"><Button variant="primary" size="xl">Рассчитать стоимость</Button></Link>
-              <Link href="tel:+79857801375"><Button variant="secondary" size="xl">+7 985 780 13 75</Button></Link>
+          <div className="max-w-3xl mx-auto">
+            <div className="glass-card rounded-2xl p-8 md:p-12">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl md:text-5xl font-bold text-fg mb-4 text-balance" style={{ fontFamily: 'var(--font-display)' }}>
+                  Готовы защитить ваши окна?
+                </h2>
+                <p className="text-lg text-fg-muted mb-2">
+                  Бесплатный выезд замерщика по Москве и МО. Расчёт в день обращения.
+                </p>
+                <div className="flex items-center justify-center gap-4 mt-4">
+                  <a href="tel:+79857801375" className="text-accent font-bold hover:text-accent-dim transition-colors">+7 985 780 13 75</a>
+                  <span className="text-fg-subtle">·</span>
+                  <a href="https://wa.me/79857801375" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 transition-colors">WhatsApp</a>
+                </div>
+              </div>
+              <QuickLeadForm />
             </div>
           </div>
         </Container>

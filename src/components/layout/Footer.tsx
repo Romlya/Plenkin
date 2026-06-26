@@ -65,7 +65,8 @@ export function Footer() {
                 </div>
               </Link>
               <p className="text-sm text-fg-muted leading-relaxed mb-6">
-                Комплексный провайдер безопасности и эстетики остекления в Москве и МО.
+                Поставляем и монтируем архитектурные плёнки безопасности и декора
+                для школ, офисов, ТЦ и жилых домов в Москве и МО.
                 Сертифицированные плёнки с гарантией до 15 лет.
               </p>
               <div className="space-y-2 text-sm">
@@ -116,11 +117,14 @@ export function Footer() {
             <div>
               <h3 className="text-sm font-semibold text-fg uppercase tracking-wider mb-4">Нормативная база</h3>
               <ul className="space-y-2 text-sm text-fg-muted">
-                <li>ГОСТ Р 51136-2008</li>
-                <li>ГОСТ 30826-2014</li>
+                <li><a href="https://docs.cntd.ru/document/1200083226" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">ГОСТ Р 51136-2008</a></li>
+                <li><a href="https://docs.cntd.ru/document/1200104145" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">ГОСТ 30826-2014</a></li>
                 <li>РД МВД РФ №78 148-94</li>
-                <li>ГОСТ Р 51261</li>
+                <li><a href="https://docs.cntd.ru/document/1200023125" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">ГОСТ Р 51261</a></li>
               </ul>
+              <p className="text-xs text-fg-subtle mt-4 leading-relaxed">
+                Подбор плёнок ведём с учётом нормативной базы и требований надзорных органов.
+              </p>
               <div className="mt-6 p-4 rounded-xl glass-card">
                 <div className="text-xs text-fg-muted mb-1">Работаем по договору</div>
                 <div className="text-sm text-fg">Юр. лица, НДС, 44-ФЗ, 223-ФЗ</div>

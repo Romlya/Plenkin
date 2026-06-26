@@ -65,7 +65,7 @@ export function Header() {
                 alt="ПЛЕНКИН — архитектурные плёнки"
                 fill
                 className="object-contain"
-                style={{ filter: 'brightness(0) saturate(100%) invert(75%) sepia(60%) saturate(500%) hue-rotate(5deg) brightness(105%)' }}
+                style={{ filter: 'brightness(0) invert(1)' }}
                 priority
               />
               </div>

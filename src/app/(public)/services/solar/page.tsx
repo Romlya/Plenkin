@@ -6,8 +6,10 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/solar' },
   title: 'Солнцезащитные и атермальные плёнки на окна | ПЛЕНКИН',
   description: 'Зеркальные, атермальные, спаттерные, керамические плёнки. Снижение жары до 80%, UV-защита 99%. Цены от 650 ₽/м². Москва и МО.',
 }
@@ -37,6 +39,8 @@ const comparison = [
 export default function SolarPage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Солнцезащитные и атермальные плёнки" description="Зеркальные, атермальные, керамические плёнки. Снижение жары до 80%." priceFrom="650" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Солнцезащитные плёнки', url: '/services/solar' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Солнцезащитные плёнки', href: '/services/solar' }]} />
       </Container>

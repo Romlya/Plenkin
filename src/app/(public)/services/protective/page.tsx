@@ -7,8 +7,10 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { ServiceItem } from '@/components/sections/ServiceItem'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/protective' },
   title: 'Противоосколочные и бронирующие плёнки (К4–Р4А) | ПЛЕНКИН',
   description: 'Сертифицированные классы защиты К4–Р4А по ГОСТ 51136, 30826. Защита от осколков, взлома, БПЛА. Цены от 1 100 ₽/м². Гарантия до 15 лет. Москва и МО.',
 }
@@ -44,6 +46,8 @@ const faqItems = [
 export default function ProtectivePage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Противоосколочные и бронирующие плёнки" description="Классы К4–Р4А по ГОСТ. Защита от осколков, взлома, БПЛА." priceFrom="1100" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Противоосколочные плёнки', url: '/services/protective' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Противоосколочные плёнки', href: '/services/protective' }]} />
       </Container>

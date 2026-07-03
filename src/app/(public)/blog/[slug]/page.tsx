@@ -220,6 +220,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${article.title} — ПЛЕНКИН`,
     description: article.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.excerpt,
+      publishedTime: article.date,
+    },
   }
 }
 
@@ -228,8 +235,39 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const article = articles[slug]
   if (!article) notFound()
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.date,
+    author: { '@type': 'Organization', name: 'ПЛЕНКИН' },
+    publisher: { '@type': 'Organization', name: 'ПЛЕНКИН' },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://plenkin.ru' },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://plenkin.ru/blog' },
+      { '@type': 'ListItem', position: 3, name: article.title, item: `https://plenkin.ru/blog/${slug}` },
+    ],
+  }
+
+  const relatedArticles = Object.entries(articles)
+    .filter(([s]) => s !== slug)
+    .filter(([, a]) => a.category === article.category)
+    .slice(0, 3)
+  const fallbackRelated = Object.entries(articles)
+    .filter(([s]) => s !== slug)
+    .slice(0, 3)
+  const related = relatedArticles.length >= 2 ? relatedArticles : fallbackRelated
+
   return (
     <div className="min-h-screen pt-32">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <article className="py-16 bg-bg">
         <Container size="md">
           <div className="mb-8">
@@ -259,6 +297,23 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
               </p>
             ))}
           </div>
+
+          {related.length > 0 && (
+            <div className="mt-12 pt-8 border-t border-border">
+              <h3 className="text-xl font-bold text-fg mb-6">Похожие статьи</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {related.map(([relSlug, relArticle]) => (
+                  <Link key={relSlug} href={`/blog/${relSlug}`} className="group">
+                    <div className="p-5 rounded-xl glass-card transition-all group-hover:border-accent/30">
+                      <div className="text-xs text-accent mb-2">{relArticle.category}</div>
+                      <div className="text-sm font-semibold text-fg group-hover:text-accent transition-colors leading-snug">{relArticle.title}</div>
+                      <div className="text-xs text-fg-subtle mt-2">{relArticle.readTime}</div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           <Card variant="elevated" className="p-8 mt-12 text-center">
             <h2 className="text-2xl font-bold text-fg mb-4">Нужна консультация?</h2>

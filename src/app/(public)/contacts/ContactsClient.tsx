@@ -167,6 +167,27 @@ export default function ContactsClient() {
           </div>
         </Container>
       </section>
+
+      <section className="py-16 bg-bg-elevated">
+        <Container>
+          <h2 className="text-2xl md:text-3xl font-bold text-fg mb-8 text-center" style={{ fontFamily: 'var(--font-display)' }}>
+            География работы
+          </h2>
+          <div className="rounded-2xl overflow-hidden border border-border" style={{ height: '400px' }}>
+            <iframe
+              src="https://yandex.ru/map-widget/v1/?ll=37.617635%2C55.755814&z=10&l=map"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              title="Яндекс.Карта — Москва и МО"
+              style={{ border: 0, filter: 'invert(0.9) hue-rotate(180deg)' }}
+            />
+          </div>
+          <p className="text-center text-sm text-fg-muted mt-4">
+            Работаем по Москве и Московской области. Выезд замерщика — бесплатно при заключении договора.
+          </p>
+        </Container>
+      </section>
     </div>
   )
 }

@@ -6,8 +6,10 @@ import { Card, CardTitle, CardDescription } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/decorative' },
   title: 'Декоративные плёнки: матирование, витражи, фотопечать | ПЛЕНКИН',
   description: 'Матовые, сатиновые, витражные, дихроичные плёнки. Фотопечать, плоттерная резка, One Way Vision. Зонирование без замены стекла. От 529 ₽/м².',
 }
@@ -24,6 +26,8 @@ const features = [
 export default function DecorativePage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Декоративные плёнки" description="Матирование, витражи, фотопечать, плоттерная резка." priceFrom="529" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Декоративные плёнки', url: '/services/decorative' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Декоративные плёнки', href: '/services/decorative' }]} />
       </Container>

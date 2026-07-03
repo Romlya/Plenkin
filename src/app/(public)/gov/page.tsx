@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/gov' },
   title: 'Для госзаказчиков — работа по 44-ФЗ и 223-ФЗ | ПЛЕНКИН',
   description: 'Поставка и монтаж архитектурных плёнок для государственных учреждений. Полный пакет документов для 44-ФЗ и 223-ФЗ. Сертификаты ГОСТ. Опыт работы со школами, МЧС, администрациями.',
 }

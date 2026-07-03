@@ -1,6 +1,7 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services' },
   title: 'Услуги — архитектурные плёнки в Москве | ПЛЕНКИН',
   description: '7 направлений: противоосколочные (К4–Р4А), солнцезащитные, атермальные, декоративные плёнки, фотопечать, плоттерная резка, брендирование офисов, смарт-плёнки. Цены от 150 ₽/м².',
 }

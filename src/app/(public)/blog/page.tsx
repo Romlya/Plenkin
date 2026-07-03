@@ -1,4 +1,4 @@
-import Link from 'next/link'
+﻿import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/Button'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/blog' },
   title: 'Блог — статьи и руководства об архитектурных плёнках | ПЛЕНКИН',
   description: 'Полезные статьи: как выбрать класс защиты, атермальная vs зеркальная, защита от БПЛА, DIY vs профессиональный монтаж, смарт-плёнки PDLC.',
 }

@@ -1,4 +1,4 @@
-﻿﻿import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -6,8 +6,10 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/plotter' },
   title: 'Плоттерная резка плёнок ORACAL: логотипы, буквы | ПЛЕНКИН',
   description: 'Фигурная резка самоклеящихся плёнок ORACAL 641/751/8500. Логотипы, надписи, навигация. Точность 0,1 мм. Срок 1–3 дня. От 150 ₽/м².',
 }
@@ -32,6 +34,8 @@ const applications = [
 export default function PlotterPage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Плоттерная резка плёнок ORACAL" description="Фигурная резка, логотипы, надписи, навигация." priceFrom="150" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Плоттерная резка', url: '/services/plotter' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Плоттерная резка', href: '/services/plotter' }]} />
       </Container>

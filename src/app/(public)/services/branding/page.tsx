@@ -1,4 +1,4 @@
-﻿﻿import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -6,8 +6,10 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/branding' },
   title: 'Брендирование офисов плёнкой под ключ | ПЛЕНКИН',
   description: 'Полное оформление офисов: матирование перегородок, фотопечать, плоттерная резка, навигация. Дизайн-проект + монтаж. Срок от 3 дней. От 750 ₽/м².',
 }
@@ -31,6 +33,8 @@ const zones = [
 export default function BrandingPage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Брендирование офисов плёнкой" description="Оформление офисов под ключ: ресепшн, переговорные, коридоры." priceFrom="750" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Брендирование', url: '/services/branding' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Брендирование', href: '/services/branding' }]} />
       </Container>

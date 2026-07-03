@@ -1,4 +1,4 @@
-﻿﻿import Link from 'next/link'
+﻿import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { Container } from '@/components/ui/Container'
@@ -6,8 +6,10 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/photo-print' },
   title: 'Фотопечать на плёнке: UV, сольвент, латекс | ПЛЕНКИН',
   description: 'Широкоформатная печать на плёнке: UV (от 2 150 ₽/м²), сольвентная (от 1 250 ₽/м²), латексная. Прозрачные и перфорированные основы. Москва и МО.',
 }
@@ -27,6 +29,8 @@ const bases = [
 export default function PhotoPrintPage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Фотопечать на плёнке" description="UV, сольвентная, латексная печать на плёнке." priceFrom="1250" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Фотопечать', url: '/services/photo-print' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Фотопечать', href: '/services/photo-print' }]} />
       </Container>

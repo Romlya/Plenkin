@@ -6,9 +6,11 @@ import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
+import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 import { SmartFilmDemo } from '@/components/sections/SmartFilmDemo'
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/services/smart' },
   title: 'Смарт-плёнки PDLC и спецрешения: экранирующие, музейные | ПЛЕНКИН',
   description: 'Электрохромные смарт-плёнки (переключение матовое/прозрачное), экранирующие (антишпион), музейные (UV 99%), антиграффити. От 2 300 до 84 000 ₽/м².',
 }
@@ -23,6 +25,8 @@ const specialFilms = [
 export default function SmartPage() {
   return (
     <div className="min-h-screen pt-32">
+      <ServiceSchema name="Смарт-плёнки и спецрешения" description="Электрохромные PDLC, экранирующие, музейные, антиграффити." priceFrom="2300" />
+      <BreadcrumbSchema items={[{ name: 'Услуги', url: '/services' }, { name: 'Смарт-плёнки', url: '/services/smart' }]} />
       <Container>
         <Breadcrumbs items={[{ name: 'Услуги', href: '/services' }, { name: 'Смарт-плёнки', href: '/services/smart' }]} />
       </Container>

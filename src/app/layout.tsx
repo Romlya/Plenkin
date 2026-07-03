@@ -5,6 +5,7 @@ import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { FloatingButtons } from '@/components/layout/FloatingButtons'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
+import { BackToTop } from '@/components/layout/BackToTop'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { YandexMetrika } from '@/components/seo/YandexMetrika'
 
@@ -35,6 +36,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'ПЛЕНКИН' }],
   creator: 'ПЛЕНКИН',
   publisher: 'ПЛЕНКИН',
+  alternates: {
+    canonical: '/',
+  },
   robots: {
     index: true,
     follow: true,
@@ -99,6 +103,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <FloatingButtons />
+        <BackToTop />
       </body>
     </html>
   )

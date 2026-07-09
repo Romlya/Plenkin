@@ -14,10 +14,11 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
+           script: |
             cd /var/www/plenkin
             pm2 stop plenkin
             git pull origin main
+            rm -f pnpm-workspace.yaml
             pnpm install
             pnpm build
             pm2 restart plenkin

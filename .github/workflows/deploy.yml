@@ -15,9 +15,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/frrolamai/Plenkin
+            cd /var/www/plenkin
             git pull origin main
-            pnpm install --frozen-lockfile
+            pnpm install
             pnpm build
             pm2 restart plenkin
             pm2 save

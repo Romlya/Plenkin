@@ -17,12 +17,12 @@
 |--------|----------|
 | `SSH_PRIVATE_KEY` | Приватный SSH-ключ для доступа к серверу |
 | `SERVER_IP` | `80.93.52.144` |
-| `SERVER_USER` | `frrolamai` |
+| `SERVER_USER` | `root` |
 | `SITE_URL` | `https://www.plenkinaokna.ru` |
 
 ### Переменные окружения на сервере
 
-Файл `/home/frrolamai/Plenkin/.env.local` на сервере:
+Файл `/var/www/plenkin/.env.local` на сервере:
 
 ```env
 NEXT_PUBLIC_SITE_URL=https://www.plenkinaokna.ru
@@ -45,9 +45,9 @@ LEADS_API_TOKEN=<случайный токен для защиты API>
 ### 1. Клонировать репозиторий
 
 ```bash
-cd /home/frrolamai
-git clone https://github.com/Romlya/Plenkin.git
-cd Plenkin
+cd /var/www
+git clone https://github.com/Romlya/Plenkin.git plenkin
+cd plenkin
 ```
 
 ### 2. Установить pnpm и PM2 (если нет)

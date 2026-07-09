@@ -14,7 +14,8 @@ jobs:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-           script: |
+          command_timeout: 30m
+          script: |
             cd /var/www/plenkin
             pm2 stop plenkin
             git pull origin main

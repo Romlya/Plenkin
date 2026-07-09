@@ -1,10 +1,12 @@
 ﻿import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata = {
+export const metadata = pageMetadata({
+  canonical: '/privacy',
   title: 'Политика конфиденциальности — ПЛЕНКИН',
   description: 'Политика обработки персональных данных компании ПЛЕНКИН',
-}
+})
 
 export default function PrivacyPage() {
   return (

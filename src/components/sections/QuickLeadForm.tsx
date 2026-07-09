@@ -14,6 +14,7 @@ export function QuickLeadForm() {
   const [objectType, setObjectType] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [website, setWebsite] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -26,6 +27,7 @@ export function QuickLeadForm() {
         body: JSON.stringify({
           name, phone, source: 'homepage-quickform',
           subject: `Быстрая заявка: ${objectType || 'не указан'}`,
+          website,
         }),
       })
     } catch (err) {
@@ -52,6 +54,9 @@ export function QuickLeadForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+        <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Input label="Имя" placeholder="Иван" value={name} onChange={(e) => setName(e.target.value)} required />
         <Input label="Телефон" type="tel" placeholder="+7 (___) ___-__-__" value={phone} onChange={(e) => setPhone(e.target.value)} required />

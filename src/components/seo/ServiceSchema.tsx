@@ -1,3 +1,5 @@
+import { SITE_URL } from '@/lib/site'
+
 export function ServiceSchema({ name, description, priceFrom }: { name: string; description: string; priceFrom: string }) {
   const schema = {
     '@context': 'https://schema.org',
@@ -31,7 +33,7 @@ export function BreadcrumbSchema({ items }: { items: { name: string; url: string
       '@type': 'ListItem',
       position: i + 1,
       name: item.name,
-      item: `https://plenkin.ru${item.url}`,
+      item: `${SITE_URL}${item.url}`,
     })),
   }
 

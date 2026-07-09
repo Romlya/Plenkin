@@ -120,6 +120,7 @@ export default function CalculatorClient() {
   const [phone, setPhone] = useState('')
   const [loading, setLoading] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [website, setWebsite] = useState('')
 
   // Quick calculation
   const availableFilms = category ? filmTypes[category] || [] : []
@@ -167,7 +168,7 @@ export default function CalculatorClient() {
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, source: `calculator-${mode}`, subject: `Расчёт (${mode})`, calculatorData: calcData }),
+        body: JSON.stringify({ name, phone, source: `calculator-${mode}`, subject: `Расчёт (${mode})`, calculatorData: calcData, website }),
       })
     } catch (err) {
       console.error('Submit error:', err)
@@ -269,6 +270,9 @@ export default function CalculatorClient() {
 
                   {step === 3 && (
                     <motion.form initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} onSubmit={handleSubmit} className="space-y-6">
+                      <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+                        <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
+                      </div>
                       <h3 className="text-xl font-bold text-fg mb-4">4. Контактные данные</h3>
                       <div className="p-4 rounded-xl bg-bg-card border border-border">
                         <div className="text-sm text-fg-muted mb-1">Ваш расчёт:</div>
@@ -290,6 +294,9 @@ export default function CalculatorClient() {
               ) : (
                 /* Pro mode */
                 <motion.form initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit} className="space-y-6">
+                  <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+                    <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
+                  </div>
                   <div className="p-4 rounded-xl bg-accent/5 border border-accent/20 mb-4">
                     <p className="text-sm text-fg-muted">
                       Профессиональный режим: расчёт по классам защиты ГОСТ 30826-2014,

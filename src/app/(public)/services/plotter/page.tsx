@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/plotter' },
+export const metadata = pageMetadata({
+  canonical: '/services/plotter',
   title: 'Плоттерная резка плёнок ORACAL: логотипы, буквы | ПЛЕНКИН',
   description: 'Фигурная резка самоклеящихся плёнок ORACAL 641/751/8500. Логотипы, надписи, навигация. Точность 0,1 мм. Срок 1–3 дня. От 150 ₽/м².',
-}
+})
 
 const materials = [
   { name: 'ORACAL 641', type: 'Матовая', price: '360–550 ₽/м²', desc: 'Классическая самоклеящаяся плёнка. 40+ цветов. Срок службы 3–4 года. Для интерьеров, стендов, навигации.', colors: 40 },

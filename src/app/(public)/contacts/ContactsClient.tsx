@@ -18,6 +18,7 @@ export default function ContactsClient() {
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
   const [consent, setConsent] = useState(false)
+  const [website, setWebsite] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,7 +28,7 @@ export default function ContactsClient() {
       await fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, email, subject, message, source: 'contacts' }),
+        body: JSON.stringify({ name, phone, email, subject, message, source: 'contacts', website }),
       })
     } catch (err) {
       console.error('Submit error:', err)
@@ -99,6 +100,9 @@ export default function ContactsClient() {
                 <Card variant="elevated" className="p-8">
                   <h2 className="text-2xl font-bold text-fg mb-6">Оставить заявку</h2>
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="absolute -left-[9999px] top-0" aria-hidden="true">
+                      <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <Input label="Имя" placeholder="Иван" value={name} onChange={(e) => setName(e.target.value)} required />
                       <Input label="Телефон" type="tel" placeholder="+7 (___) ___-__-__" value={phone} onChange={(e) => setPhone(e.target.value)} required />

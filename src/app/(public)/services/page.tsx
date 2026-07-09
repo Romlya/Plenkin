@@ -1,10 +1,10 @@
-﻿import type { Metadata } from 'next'
+﻿import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services' },
+export const metadata = pageMetadata({
+  canonical: '/services',
   title: 'Услуги — архитектурные плёнки в Москве | ПЛЕНКИН',
   description: '7 направлений: противоосколочные (К4–Р4А), солнцезащитные, атермальные, декоративные плёнки, фотопечать, плоттерная резка, брендирование офисов, смарт-плёнки. Цены от 150 ₽/м².',
-}
+})
 
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'

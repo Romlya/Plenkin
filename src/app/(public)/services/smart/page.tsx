@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -9,11 +9,11 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 import { SmartFilmDemo } from '@/components/sections/SmartFilmDemo'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/smart' },
+export const metadata = pageMetadata({
+  canonical: '/services/smart',
   title: 'Смарт-плёнки PDLC и спецрешения: экранирующие, музейные | ПЛЕНКИН',
   description: 'Электрохромные смарт-плёнки (переключение матовое/прозрачное), экранирующие (антишпион), музейные (UV 99%), антиграффити. От 2 300 до 84 000 ₽/м².',
-}
+})
 
 const specialFilms = [
   { name: 'Смарт-плёнка PDLC', price: '15 000–30 000 ₽/м²', desc: 'Электрохромная плёнка. Переключение матовое/прозрачное за 0,1 сек. Управление: выключатель, пульт, смартфон, датчик.', features: ['Прозрачность 75% (вкл)', 'Непрозрачность 100% (выкл)', 'Питание 220В / трансформатор', 'Срок службы 10+ лет'] },

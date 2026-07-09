@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { SITE_URL } from '@/lib/site'
 
 const blogSlugs = [
   'klassy-zashchity-plenki',
@@ -17,7 +18,7 @@ const blogSlugs = [
 ]
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://plenkin.ru'
+  const baseUrl = SITE_URL
   const lastModified = new Date()
 
   const staticPages = [

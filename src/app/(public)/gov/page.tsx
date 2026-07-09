@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next'
+﻿import { pageMetadata } from '@/lib/seo'
 import Link from 'next/link'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
@@ -6,11 +6,11 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/gov' },
+export const metadata = pageMetadata({
+  canonical: '/gov',
   title: 'Для госзаказчиков — работа по 44-ФЗ и 223-ФЗ | ПЛЕНКИН',
   description: 'Поставка и монтаж архитектурных плёнок для государственных учреждений. Полный пакет документов для 44-ФЗ и 223-ФЗ. Сертификаты ГОСТ. Опыт работы со школами, МЧС, администрациями.',
-}
+})
 
 const tenderAdvantages = [
   { title: 'Полный пакет документов', desc: 'Договор, спецификация, счёт-фактура с НДС, акт приёмки КС-2/КС-3, гарантийный талон, паспорта качества, сертификаты соответствия ГОСТ. Работаем по ЭДО.' },

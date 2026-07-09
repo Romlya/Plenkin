@@ -8,6 +8,7 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress'
 import { BackToTop } from '@/components/layout/BackToTop'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { YandexMetrika } from '@/components/seo/YandexMetrika'
+import { SITE_URL } from '@/lib/site'
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -29,7 +30,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://plenkin.ru'),
+  metadataBase: new URL(SITE_URL),
   title: 'ПЛЕНКИН — Архитектурные плёнки: защита, солнцезащита, декор. Москва и МО',
   description: 'Монтаж архитектурных плёнок в Москве и МО: противоосколочные и бронезащитные (К4–Р4А), солнцезащитные, атермальные, декоративные. Брендирование офисов под ключ. Гарантия до 15 лет. Бесплатный выезд замерщика.',
   keywords: ['архитектурные плёнки', 'противоосколочная плёнка', 'бронеплёнка', 'тонировка окон', 'атермальная плёнка', 'матование стекла', 'брендирование офиса', 'фотопечать на плёнке', 'защита от БПЛА', 'москва'],
@@ -53,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://plenkin.ru',
+    url: SITE_URL,
     siteName: 'ПЛЕНКИН',
     title: 'ПЛЕНКИН — Архитектурные плёнки: защита, солнцезащита, декор',
     description: 'Монтаж архитектурных плёнок в Москве и МО: противоосколочные и бронезащитные (К4–Р4А), солнцезащитные, атермальные, декоративные. Брендирование офисов под ключ.',
@@ -73,7 +74,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'],
   },
   verification: {
-    yandex: 'xxx',
+    yandex: 'bfb86aacf5c761ad',
   },
 }
 

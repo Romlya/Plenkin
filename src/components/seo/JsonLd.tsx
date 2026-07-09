@@ -1,10 +1,12 @@
+import { SITE_URL } from '@/lib/site'
+
 export function JsonLd() {
   const organization = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'ПЛЕНКИН',
     description: 'Комплексный провайдер архитектурных плёнок: противоосколочные, солнцезащитные, декоративные. Москва и МО.',
-    url: 'https://plenkin.ru',
+    url: SITE_URL,
     telephone: '+79857801375',
     email: 'plenkininfo@yandex.ru',
     address: {
@@ -19,7 +21,7 @@ export function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'ПЛЕНКИН',
-    image: 'https://plenkin.ru/images/logo.png',
+    image: `${SITE_URL}/images/logo.png`,
     telephone: '+79857801375',
     email: 'plenkininfo@yandex.ru',
     priceRange: 'от 150 ₽/м²',

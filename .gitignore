@@ -36,3 +36,9 @@ next-env.d.ts
 *.log
 leads.json
 .vercel
+
+# ssh keys
+*.pem
+id_rsa
+id_rsa.pub
+*.key

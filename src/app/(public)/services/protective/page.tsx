@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -9,11 +9,11 @@ import { ServiceItem } from '@/components/sections/ServiceItem'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/protective' },
+export const metadata = pageMetadata({
+  canonical: '/services/protective',
   title: 'Противоосколочные и бронирующие плёнки (К4–Р4А) | ПЛЕНКИН',
   description: 'Сертифицированные классы защиты К4–Р4А по ГОСТ 51136, 30826. Защита от осколков, взлома, БПЛА. Цены от 1 100 ₽/м². Гарантия до 15 лет. Москва и МО.',
-}
+})
 
 const protectionClasses = [
   { id: 'k4', label: 'К4 / ДВ2', thickness: '56–112 мкм', energy: 'базовая противоосколочность', objects: 'жилые помещения, школы, торговые залы', color: '#22c55e', price: 'от 1 100 ₽/м²' },

@@ -1,13 +1,13 @@
 ﻿import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/certificates' },
+export const metadata = pageMetadata({
+  canonical: '/certificates',
   title: 'Сертификаты и нормативная документация | ПЛЕНКИН',
   description: 'Сертификаты соответствия ГОСТ Р 51136-2008, ГОСТ 30826-2014. Классы защиты К4–Р4А. Документы для госзакупок 44-ФЗ и 223-ФЗ.',
-}
+})
 
 const certificates = [
   { title: 'Сертификат соответствия ГОСТ Р 51136-2008', code: 'ГОСТ Р 51136-2008', desc: 'Устойчивое к удару защитное стекло. Классы защиты К4, Р1А–Р4А.', status: 'Действует' },

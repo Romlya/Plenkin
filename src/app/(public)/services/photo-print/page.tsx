@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/photo-print' },
+export const metadata = pageMetadata({
+  canonical: '/services/photo-print',
   title: 'Фотопечать на плёнке: UV, сольвент, латекс | ПЛЕНКИН',
   description: 'Широкоформатная печать на плёнке: UV (от 2 150 ₽/м²), сольвентная (от 1 250 ₽/м²), латексная. Прозрачные и перфорированные основы. Москва и МО.',
-}
+})
 
 const technologies = [
   { name: 'UV-печать', price: '2 150–2 350 ₽/м²', desc: 'Ультрафиолетовые чернила, мгновенное отверждение. Стойкость к воде и царапинам. Для наружной рекламы и декоративных панелей.', use: 'Наружка, витрины, фасады' },

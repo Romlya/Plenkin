@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/branding' },
+export const metadata = pageMetadata({
+  canonical: '/services/branding',
   title: 'Брендирование офисов плёнкой под ключ | ПЛЕНКИН',
   description: 'Полное оформление офисов: матирование перегородок, фотопечать, плоттерная резка, навигация. Дизайн-проект + монтаж. Срок от 3 дней. От 750 ₽/м².',
-}
+})
 
 const stages = [
   { num: '01', title: 'Замер и аудит', desc: 'Выезд замерщика. Фиксация размеров перегородок, типа стекла, освещения. Согласование стиля с брендбуком.' },

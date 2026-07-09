@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card, CardDescription, CardTitle } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/solar' },
+export const metadata = pageMetadata({
+  canonical: '/services/solar',
   title: 'Солнцезащитные и атермальные плёнки на окна | ПЛЕНКИН',
   description: 'Зеркальные, атермальные, спаттерные, керамические плёнки. Снижение жары до 80%, UV-защита 99%. Цены от 650 ₽/м². Москва и МО.',
-}
+})
 
 const advantages = [
   { title: 'Управление солнечными потоками', description: 'Точное регулирование солнечными потоками, снижение энергозатрат', icon: 'temp' },

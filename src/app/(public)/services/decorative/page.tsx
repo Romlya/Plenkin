@@ -1,6 +1,6 @@
 ﻿import Link from 'next/link'
 import Image from 'next/image'
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { Container } from '@/components/ui/Container'
 import { Card, CardTitle, CardDescription } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
@@ -8,11 +8,11 @@ import { Button } from '@/components/ui/Button'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/ServiceSchema'
 
-export const metadata: Metadata = {
-  alternates: { canonical: '/services/decorative' },
+export const metadata = pageMetadata({
+  canonical: '/services/decorative',
   title: 'Декоративные плёнки: матирование, витражи, фотопечать | ПЛЕНКИН',
   description: 'Матовые, сатиновые, витражные, дихроичные плёнки. Фотопечать, плоттерная резка, One Way Vision. Зонирование без замены стекла. От 529 ₽/м².',
-}
+})
 
 const features = [
   { icon: 'matte', title: 'Матовые и сатиновые', description: 'Оформление перегородок, зонирование open space, разграничение переговорных', image: '/images/tinting-bright-interior.webp' },

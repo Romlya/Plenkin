@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
+import { SITE_URL } from '@/lib/site'
 
 const articles: Record<string, { title: string; excerpt: string; date: string; readTime: string; category: string; content: string[] }> = {
   'klassy-zashchity-plenki': {
@@ -217,15 +218,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const article = articles[slug]
   if (!article) return {}
+  const canonical = `/blog/${slug}`
   return {
     title: `${article.title} — ПЛЕНКИН`,
     description: article.excerpt,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical },
     openGraph: {
       type: 'article',
+      url: `${SITE_URL}${canonical}`,
       title: article.title,
       description: article.excerpt,
       publishedTime: article.date,
+    },
+    twitter: {
+      card: 'summary_large_image' as const,
+      title: article.title,
+      description: article.excerpt,
     },
   }
 }
@@ -249,9 +257,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://plenkin.ru' },
-      { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://plenkin.ru/blog' },
-      { '@type': 'ListItem', position: 3, name: article.title, item: `https://plenkin.ru/blog/${slug}` },
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Блог', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: article.title, item: `${SITE_URL}/blog/${slug}` },
     ],
   }
 

@@ -67,7 +67,11 @@ export function Hero() {
       <motion.div style={{ y: contentY, opacity: contentOpacity }}>
         <Container className="relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 mb-8 backdrop-blur-sm">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                 <span className="text-sm text-accent font-medium">Москва и МО · С 2009 года</span>
@@ -89,18 +93,24 @@ export function Hero() {
                   'Снижение жары и затрат на кондиционирование до 80%',
                   'Декоративное зонирование без замены стекла',
                 ].map((point, i) => (
-                  <div
+                  <motion.div
                     key={i}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
                     className="flex items-center gap-3 text-sm md:text-base text-fg-muted"
                   >
                     <span className="text-accent flex-shrink-0">—</span>
                     {point}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
             >
               <Link href="/calculator">
@@ -109,7 +119,7 @@ export function Hero() {
               <Link href="/contacts">
                 <Button variant="secondary" size="xl" className="w-full sm:w-auto">Заказать выезд замерщика</Button>
               </Link>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
               {[
@@ -118,8 +128,11 @@ export function Hero() {
                 { value: 200, suffix: '+', label: 'объектов в Москве и МО' },
                 { value: 0, suffix: '', label: 'поддержка 24/7', isStatic: true, staticText: '24/7' },
               ].map((stat, i) => (
-                <div
+                <motion.div
                   key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.5 + i * 0.1 }}
                   className="text-center"
                 >
                   {stat.isStatic ? (
@@ -130,7 +143,7 @@ export function Hero() {
                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                   )}
                   <div className="text-xs text-fg-muted">{stat.label}</div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

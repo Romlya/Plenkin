@@ -217,7 +217,7 @@ export default function CalculatorClient() {
                 <>
                   {/* Quick mode steps */}
                   {step === 1 && (
-                    <motion.div animate={{ opacity: 1, x: 0 }} className="space-y-6">
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
                       <h3 className="text-xl font-bold text-fg mb-4">1. Выберите направление</h3>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                         {filmCategories.map((cat) => (
@@ -230,7 +230,7 @@ export default function CalculatorClient() {
                         ))}
                       </div>
                       {category && (
-                        <motion.div animate={{ opacity: 1 }} className="space-y-3">
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3">
                           <h3 className="text-xl font-bold text-fg mb-4">2. Выберите тип плёнки</h3>
                           {availableFilms.map((film) => (
                             <button key={film.value} onClick={() => setFilmType(film.value)}
@@ -246,13 +246,13 @@ export default function CalculatorClient() {
                   )}
 
                   {step === 2 && (
-                    <motion.div animate={{ opacity: 1, x: 0 }} className="space-y-6">
+                    <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
                       <h3 className="text-xl font-bold text-fg mb-4">3. Параметры объекта</h3>
                       <Input label="Площадь остекления (м²)" type="number" min="1" step="0.1" placeholder="например, 50" value={area} onChange={(e) => setArea(e.target.value)} hint="Укажите примерную площадь." />
                       <Select label="Высота / этажность" placeholder="Выберите" value={height} onChange={(e) => setHeight(e.target.value)} options={heightOptions.map(h => ({ value: h.value, label: `${h.label} (×${h.coefficient})` }))} />
                       <Select label="Срочность" placeholder="Выберите" value={urgency} onChange={(e) => setUrgency(e.target.value)} options={urgencyOptions.map(u => ({ value: u.value, label: `${u.label} (×${u.coefficient})` }))} />
                       {canCalcQuick && (
-                        <motion.div animate={{ opacity: 1, y: 0 }} className="p-6 rounded-xl bg-accent/10 border border-accent/30">
+                        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-6 rounded-xl bg-accent/10 border border-accent/30">
                           <div className="text-sm text-fg-muted mb-2">Предварительная стоимость:</div>
                           <div className="text-3xl font-bold text-accent font-mono mb-3">{quickMin.toLocaleString()} — {quickMax.toLocaleString()} ₽</div>
                           <div className="grid grid-cols-2 gap-4 text-xs">
@@ -269,7 +269,7 @@ export default function CalculatorClient() {
                   )}
 
                   {step === 3 && (
-                    <motion.form animate={{ opacity: 1, x: 0 }} onSubmit={handleSubmit} className="space-y-6">
+                    <motion.form initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} onSubmit={handleSubmit} className="space-y-6">
                       <div className="absolute -left-[9999px] top-0" aria-hidden="true">
                         <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
                       </div>
@@ -293,7 +293,7 @@ export default function CalculatorClient() {
                 </>
               ) : (
                 /* Pro mode */
-                <motion.form animate={{ opacity: 1 }} onSubmit={handleSubmit} className="space-y-6">
+                <motion.form initial={{ opacity: 0 }} animate={{ opacity: 1 }} onSubmit={handleSubmit} className="space-y-6">
                   <div className="absolute -left-[9999px] top-0" aria-hidden="true">
                     <label>Не заполняйте это поле<input type="text" value={website} onChange={(e) => setWebsite(e.target.value)} tabIndex={-1} autoComplete="off" /></label>
                   </div>
@@ -334,7 +334,7 @@ export default function CalculatorClient() {
                     options={requirementOptions.map(r => ({ value: r.value, label: `${r.label} (×${r.coefficient})` }))} />
 
                   {canCalcPro && (
-                    <motion.div animate={{ opacity: 1, y: 0 }} className="p-6 rounded-xl bg-accent/10 border border-accent/30">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="p-6 rounded-xl bg-accent/10 border border-accent/30">
                       <div className="text-sm text-fg-muted mb-2">Расчёт по ГОСТ:</div>
                       <div className="text-3xl font-bold text-accent font-mono mb-3">{proMin.toLocaleString()} — {proMax.toLocaleString()} ₽</div>
                       <div className="grid grid-cols-2 gap-4 text-xs">

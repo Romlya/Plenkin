@@ -96,6 +96,29 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <style dangerouslySetInnerHTML={{ __html: `
+          :root { --color-bg:#0a0a0b; --color-fg:#fafafa; --color-accent:#e8b42a; }
+          body { margin:0; background-color:#0a0a0b; color:#fafafa; font-family:Inter,system-ui,-apple-system,sans-serif; }
+          * { box-sizing:border-box; }
+          img { max-width:100%; height:auto; }
+          a { color:inherit; text-decoration:none; }
+          h1,h2,h3 { margin:0; font-weight:inherit; }
+          ul,ol { margin:0; padding:0; list-style:none; }
+          .bg-bg { background-color:#0a0a0b; }
+          .bg-bg-elevated { background-color:#141416; }
+          .bg-bg-card { background-color:#18181b; }
+          .text-fg { color:#fafafa; }
+          .text-fg-muted { color:#a1a1aa; }
+          .text-accent { color:#e8b42a; }
+          .text-gradient-accent { background:linear-gradient(135deg,#e8b42a,#f5d76e); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+          .glass-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:1rem; }
+          .hidden { display:none; }
+          .flex { display:flex; }
+          .grid { display:grid; }
+          .container { max-width:80rem; margin:0 auto; padding:0 1rem; }
+          @media (min-width:40rem) { .container { padding:0 1.5rem; } }
+          @media (min-width:64rem) { .container { padding:0 2rem; } }
+        `}} />
       </head>
       <body className="font-body bg-bg text-fg antialiased">
         <JsonLd />

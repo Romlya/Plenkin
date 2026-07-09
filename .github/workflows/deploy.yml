@@ -16,6 +16,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /var/www/plenkin
+            pm2 stop plenkin
             git pull origin main
             pnpm install
             pnpm build
